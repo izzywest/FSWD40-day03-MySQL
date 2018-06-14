@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Report task</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Tasks:</h1>
+        </div>
+        <div class="card">
+            <h2>1. Report</h2>
+            <p>How many rows do we have in each table in employees database?</p>
+            <code>SELECT COUNT(*) FROM ...;</code>
+            <li>departments: 9</li>
+            <li>dept_emp: 331603</li>
+            <li>dept_manager: 24</li>
+            <li>employees: 300024</li>
+            <li>salaries: 2587177</li>
+            <li>titles: 443308</li>
+        </div>
+
+        <div class="card">
+            <h2>2. Report</h2>
+            <p>How many employees with the first name "Mark" do we have in our company?</p>
+            <code>SELECT COUNT(*) first_name FROM employees WHERE first_name='Mark';</code>
+            <li>230</li>
+        </div>
+
+        <div class="card">
+            <h2>3. Report</h2>
+            <p>How many employees with the first name "Eric" and the last name beginning with "A" do we have in our company?</p>
+            <code>SELECT first_name, last_name FROM employees WHERE first_name='Eric' AND last_name LIKE 'A%';</code>
+            <li>13</li>
+        </div>
+
+        <div class="card">
+            <h2>4. Report</h2>
+            <p>How many employees do we have that are working for us since 1985 and who are they?</p>
+            <code>SELECT * FROM employees WHERE hire_date BETWEEN '1985-01-01' AND '1985-12-31';</code>
+            <code>SELECT COUNT(*) FROM employees WHERE hire_date BETWEEN '1985-01-01' AND '1985-12-31';</code>
+            <li>35316</li>
+        </div>
+
+        <div class="card">
+            <h2>5. Report</h2>
+            <p>How many employees got hired from 1990 until 1997 and who are they?</p>
+            <code>SELECT * FROM employees WHERE hire_date BETWEEN '1990-01-01' AND '1997-12-31';</code>
+            <code>SELECT COUNT(*) FROM employees WHERE hire_date BETWEEN '1990-01-01' AND '1997-12-31';</code>
+            <li>129545</li>
+        </div>
+
+        <div class="card">
+            <h2>6. Report</h2>
+            <p>How many employees have salaries higher than EUR 70 000,00 and who are they?</p>
+            <code>SELECT salaries.salary, employees.first_name, employees.last_name FROM salaries 
+                INNER JOIN employees ON employees.emp_no = salaries.emp_no WHERE salaries.salary > 70000;</code>
+            <li>826039</li>
+        </div>
+    </div>
+</body>
+
+</html>
